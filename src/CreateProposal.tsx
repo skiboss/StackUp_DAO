@@ -61,10 +61,10 @@ export default function CreateProposal() {
     if (!provider) init();
   }, [provider]);
 
-  //Step 5 - Configure Proposal Form
+  //Step 4 - Configure Proposal Form
   const form = useForm<z.infer<typeof formSchema>>({});
 
-  //Step 6 - Write Create Proposal Logic
+  //Step 5 - Write Create Proposal Logic
   function onSubmit(values: z.infer<typeof formSchema>) {}
 
   return (
