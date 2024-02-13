@@ -8,7 +8,6 @@ function useDAOSmartContract(provider: IPortkeyProvider | null) {
   //Step 1 - Setup Portkey Wallet Provider
   useEffect(() => {});
 
-  // console.log(smartContract);
   return smartContract;
 }
 
