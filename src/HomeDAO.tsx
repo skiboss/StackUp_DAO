@@ -47,19 +47,43 @@ function HomeDAO() {
   };
 
   const init = async () => {
-    //Step 2 - Initialise Portkey Provider
+    try {
+      setProvider(await detectProvider());
+      try {
+        //Fetch Accounts
+        const accounts = await provider?.request({
+          method: MethodsBase.ACCOUNTS,
+        });
+        if (!accounts) throw new Error("No accounts");
+
+        const account = accounts?.tDVW?.[0];
+
+        if (!account) throw new Error("No account");
+
+        const proposalResponse = await DAOContract?.callViewMethod<IProposals>(
+          "GetAllProposals",
+          ""
+        );
+        setProposals(proposalResponse?.data);
+        alert("Fetched proposals");
+      } catch (error) {
+        console.error(error, "===error");
+      }
+    } catch (error) {
+      console.log(error, "=====error");
+    }
   };
 
   const connect = async () => {
-    //Step 3 - Connect Portkey Wallet
+    //Step 2 - Connect Portkey Wallet
   };
 
   const initializeAndJoinDAO = async () => {
-    //Step 4 - Write Initialize Smart Contract and Join DAO Logic
+    //Step 3 - Write Initialize Smart Contract and Join DAO Logic
   };
 
   const voteYes = async (index: number) => {
-    //Step 7 - Write Vote Yes Logic
+    //Step 6 - Write Vote Yes Logic
   };
 
   const voteNo = async (index: number) => {
@@ -93,7 +117,7 @@ function HomeDAO() {
   };
 
   useEffect(() => {
-    //Step 8 - Use Effect to Fetch Proposals
+    //Step 7 - Use Effect to Fetch Proposals
   }, [DAOContract, hasVoted, isConnected, joinedDAO]);
 
   useEffect(() => {
