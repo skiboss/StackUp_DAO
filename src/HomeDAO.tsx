@@ -83,7 +83,7 @@ function HomeDAO() {
   };
 
   const voteYes = async (index: number) => {
-    //Step 6 - Write Vote Yes Logic
+    //Step F - Write Vote Yes Logic
   };
 
   const voteNo = async (index: number) => {
@@ -117,7 +117,7 @@ function HomeDAO() {
   };
 
   useEffect(() => {
-    //Step 7 - Use Effect to Fetch Proposals
+    //Step G - Use Effect to Fetch Proposals
   }, [DAOContract, hasVoted, isConnected, joinedDAO]);
 
   useEffect(() => {
