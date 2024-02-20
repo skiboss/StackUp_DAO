@@ -48,7 +48,7 @@ function HomeDAO() {
 
   const init = async () => {
     try {
-      setProvider(await detectProvider());
+      setProvider(await detectProvider({ providerName: "Portkey" }));
       try {
         //Fetch Accounts
         const accounts = await provider?.request({
@@ -76,6 +76,13 @@ function HomeDAO() {
 
   const connect = async () => {
     //Step B - Connect Portkey Wallet
+    const accounts = await provider?.request({
+      method: MethodsBase.REQUEST_ACCOUNTS,
+    });
+    const account = accounts?.tDVW?.[0];
+    setCurrentWalletAddress(account);
+    setIsConnected(true);
+    alert("Successfully connected");
   };
 
   const initializeAndJoinDAO = async () => {
