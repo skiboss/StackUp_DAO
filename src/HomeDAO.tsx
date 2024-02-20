@@ -48,7 +48,7 @@ function HomeDAO() {
 
   const init = async () => {
     try {
-      setProvider(await detectProvider());
+      setProvider(await detectProvider({ providerName: "Portkey" }));
       try {
         //Fetch Accounts
         const accounts = await provider?.request({
