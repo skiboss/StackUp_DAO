@@ -5,7 +5,7 @@ function useDAOSmartContract(provider: IPortkeyProvider | null) {
   const [smartContract, setSmartContract] =
     useState<ReturnType<IChain["getContract"]>>();
 
-  //Step 1 - Setup Portkey Wallet Provider
+  //Step A - Setup Portkey Wallet Provider
   useEffect(() => {});
 
   return smartContract;
