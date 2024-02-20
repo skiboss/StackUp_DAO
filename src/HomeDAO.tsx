@@ -75,11 +75,11 @@ function HomeDAO() {
   };
 
   const connect = async () => {
-    //Step 2 - Connect Portkey Wallet
+    //Step B - Connect Portkey Wallet
   };
 
   const initializeAndJoinDAO = async () => {
-    //Step 3 - Write Initialize Smart Contract and Join DAO Logic
+    //Step C - Write Initialize Smart Contract and Join DAO Logic
   };
 
   const voteYes = async (index: number) => {
