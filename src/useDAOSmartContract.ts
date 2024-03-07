@@ -6,7 +6,27 @@ function useDAOSmartContract(provider: IPortkeyProvider | null) {
     useState<ReturnType<IChain["getContract"]>>();
 
   //Step A - Setup Portkey Wallet Provider
-  useEffect(() => {});
+useEffect(() => {
+  (async () => {
+    if (!provider) return null;
+
+    try {
+      // 1. get the sidechain tDVW using provider.getChain
+      const chain = await provider?.getChain("tDVW");
+      if (!chain) throw new Error("No chain");
+
+      //Address of DAO Smart Contract
+      //Replace with Address of Deployed Smart Contract
+      const address = "7yLW8BWYgZKCJ1ksPniorsJSJBHtZbsw6RVPa5vKwwA4nhzGT";
+
+      // 2. get the DAO contract
+      const daoContract = chain?.getContract(address);
+      setSmartContract(daoContract);
+    } catch (error) {
+      console.log(error, "====error");
+    }
+  })();
+}, [provider]);
 
   return smartContract;
 }
